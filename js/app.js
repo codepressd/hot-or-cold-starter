@@ -31,7 +31,9 @@ $(document).ready(function(){
   	};
 
   	/*submit guess and track how many guesses and how close to the number*/
+  	$('form').submit(function(){
 
+  	});
 
 });
 
