@@ -16,6 +16,11 @@ $(document).ready(function(){
 
   	/* New Game clears random num, clears guesses, generates new random num */
 
+  	$(".new").on('click', function(){
+  		randNum = randomNum();
+  		amtGuess = 0;
+  	});
+
   	/* Create a random number between 1 and 100*/
 
   	function randomNum (){
