@@ -21,6 +21,8 @@ $(document).ready(function(){
   		randNum = randomNum();
   		amtGuess = 0;
   		$('#count').text(amtGuess);
+  		$('#userGuess').val('');
+  		$('ul#guessList').html('');
   	});
 
   	/* Create a random number between 1 and 100*/
@@ -41,32 +43,41 @@ $(document).ready(function(){
   			alert("Guess must be between 1 and 100");
   			amtGuess--;
   		}
-  		$()
+  		var numDiff = Math.abs(randNum - guessUser);
+
+  		howClose(numDiff);
+  		$('ul#guessList').append('<li>' + guessUser + '</li>');
   		amtGuess++;
   		$('#count').text(amtGuess);
   	});
 
 /*Function to compare how close the guess was*/
   	function howClose(num){
-  		var numDiff = Math.abs(randNum - guessUser);
-  		
-  		if(numDiff > 70 ){
+
+  		if(num >= 70 ){
   			$('h2#feedback').text('Artic Cold');
-  		}else if(numDiff < 70 && numDiff > 50){
-  			$('h2#feedback').text('Ice Cold');
-  		}else if(numDiff < 50 && numDiff > 30){
-  			$('h2#feedback').text('Cold');
-  		}else if(numDiff < 30 && numDiff > 20){
-  			$('h2#feedback').text('Luke Warm');
-  		}else if(numDiff < 20 && numDiff > 10){
-  			$('h2#feedback').text('Warm');
-  		}else if(numDiff < 10 && numDiff > 5){
-  			$('h2#feedback').text('Hot');
-  		}else if(numDiff < 5 && numDiff > 1){
-  			$('h2#feedback').text('So Hot In Here!');
-  		}else(numDiff == 0){
-  			$('h2#feedback').text('Boom You Guessed It!');
   		}
+  		else if(num < 70 && num >= 50){
+  			$('h2#feedback').text('Ice Cold');
+  		}
+  		else if(num < 50 && num >= 30){
+  			$('h2#feedback').text('Cold');
+  		}
+  		else if(num < 30 && num >= 20){
+  			$('h2#feedback').text('Luke Warm');
+  		}
+  		else if(num < 20 && num >= 10){
+  			$('h2#feedback').text('Warm');
+  		}
+  		else if(num < 10 && num >= 5){
+  			$('h2#feedback').text('Hot');
+  		}
+  		else if(num < 5 && num >= 1){
+  			$('h2#feedback').text('So Hot In Here!');
+  		}
+  		else if(num == 0)
+  			$('h2#feedback').text('Boom You Guessed It!');
+  		
 
 
   	};
