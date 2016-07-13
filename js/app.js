@@ -23,6 +23,7 @@ $(document).ready(function(){
   		$('#count').text(amtGuess);
   		$('#userGuess').val('');
   		$('ul#guessList').html('');
+  		$('h2#feedback').text('Make your Guess!')
   	});
 
   	/* Create a random number between 1 and 100*/
@@ -34,7 +35,7 @@ $(document).ready(function(){
 
   	};
 
-  	/*submit guess and track how many guesses and how close to the number*/
+  	/*submit guess and track how many guesses*/
   	$('form').submit(function(e){
   		e.preventDefault();
   		guessUser = parseInt($('#userGuess').val());
@@ -49,6 +50,7 @@ $(document).ready(function(){
   		$('ul#guessList').append('<li>' + guessUser + '</li>');
   		amtGuess++;
   		$('#count').text(amtGuess);
+  		$('#userGuess').val('');
   	});
 
 /*Function to compare how close the guess was*/
