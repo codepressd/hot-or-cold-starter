@@ -1,4 +1,4 @@
-
+//here's my change.
 $(document).ready(function(){
 	var randNum = randomNum();
 	var guessUser;
